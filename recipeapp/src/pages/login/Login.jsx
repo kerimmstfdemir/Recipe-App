@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import meal2 from "../../assets/meal2.svg";
 import { useReducer } from "react";
-import { initalState, reducer } from "../../reducer";
+import { initalState, reducer } from "../../context/reducer";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -25,6 +25,7 @@ const Login = () => {
     
   }
 
+  console.log(`Username:${userName} Password:${password}`)
   return (
     <LoginStyled>
       <LoginDivStyled>
