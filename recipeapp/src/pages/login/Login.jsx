@@ -2,8 +2,29 @@ import { LoginStyled, LoginDivStyled, LoginImgStyled, LoginPStyled } from "./Log
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import meal2 from "../../assets/meal2.svg";
+import { useReducer } from "react";
+import { initalState, reducer } from "../../reducer";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const [state, dispatch] = useReducer(reducer, initalState);
+  const {userName, password, loginInformation} = state;
+  const navigate = useNavigate();
+
+  const userNameFunc = (e) => {
+    dispatch({type:"USERNAME", username:e.target.value})
+  }
+
+  const loginButtonFunc = (e) => {
+    e.preventDefault();
+    if (userName && password) {
+      navigate("/home");
+    } else {
+      navigate("/")
+    }
+    
+  }
+
   return (
     <LoginStyled>
       <LoginDivStyled>
@@ -11,14 +32,14 @@ const Login = () => {
         <LoginPStyled>RECIPE APP</LoginPStyled>
         <Form className="d-flex flex-column">
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Control type="text" placeholder="USERNAME" />
+            <Form.Control type="text" placeholder="USERNAME" onChange={userNameFunc} />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Control type="password" placeholder="PASSWORD" />
+            <Form.Control type="password" placeholder="PASSWORD" onChange={(e) => dispatch({type:"PASSWORD", password:e.target.value})}/>
           </Form.Group>
 
-          <Button type="submit" variant="primary">LOGIN</Button>
+          <Button type="submit" variant="primary" onClick={loginButtonFunc}>LOGIN</Button>
           
         </Form>
       </LoginDivStyled>
