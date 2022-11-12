@@ -1,10 +1,10 @@
-import { useContext } from "react";
+import { useReducer } from "react";
 import { Link } from "react-router-dom";
-import { LoginContext } from "../../context/MainContext";
+import { initalState, reducer } from "../../context/reducer";
 import { NavBarStyled, NavBarLinkStyled } from "./Navbar.styled";
 
 const Navbar = () => {
-    const [state, dispatch] = useContext(LoginContext);
+    const [state, dispatch] = useReducer(reducer, initalState);
     console.log(state);
   return (
     <NavBarStyled>
