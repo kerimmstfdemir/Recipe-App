@@ -11,7 +11,9 @@ function App() {
   const [data, setData] = useState({
     loginInformation:false,
     userName:"",
-    password:""
+    password:"",
+    searchFood:"",
+    selectMeal:"breakfast"
   })
 
   return (
