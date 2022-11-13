@@ -1,11 +1,7 @@
-import { useReducer } from "react";
 import { Link } from "react-router-dom";
-import { initalState, reducer } from "../../context/reducer";
 import { NavBarStyled, NavBarLinkStyled } from "./Navbar.styled";
 
 const Navbar = () => {
-    const [state, dispatch] = useReducer(reducer, initalState);
-    console.log(state);
   return (
     <NavBarStyled>
       <div>RECIPE APP</div>

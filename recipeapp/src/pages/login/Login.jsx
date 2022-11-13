@@ -2,30 +2,24 @@ import { LoginStyled, LoginDivStyled, LoginImgStyled, LoginPStyled } from "./Log
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import meal2 from "../../assets/meal2.svg";
-import { useReducer } from "react";
-import { initalState, reducer } from "../../context/reducer";
+import { MainContext } from "../../context/context"; 
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const [state, dispatch] = useReducer(reducer, initalState);
-  const {userName, password, loginInformation} = state;
+  const {data, data:{userName, password}, setData} = useContext(MainContext);
   const navigate = useNavigate();
 
-  const userNameFunc = (e) => {
-    dispatch({type:"USERNAME", username:e.target.value})
-  }
-
-  const loginButtonFunc = (e) => {
+  const LoginButtonFunc = (e) => {
     e.preventDefault();
     if (userName && password) {
-      navigate("/home");
+      setData({...data, loginInformation:true})
+      navigate("/home")
     } else {
       navigate("/")
     }
-    
   }
-
-  console.log(`Username:${userName} Password:${password}`)
+  
   return (
     <LoginStyled>
       <LoginDivStyled>
@@ -33,14 +27,14 @@ const Login = () => {
         <LoginPStyled>RECIPE APP</LoginPStyled>
         <Form className="d-flex flex-column">
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Control type="text" placeholder="USERNAME" onChange={userNameFunc} />
+            <Form.Control type="text" placeholder="USERNAME" onChange={(e) => setData({...data, userName:e.target.value})}/>
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Control type="password" placeholder="PASSWORD" onChange={(e) => dispatch({type:"PASSWORD", password:e.target.value})}/>
+            <Form.Control type="password" placeholder="PASSWORD" onChange={(e) => setData({...data, password:e.target.value})}/>
           </Form.Group>
 
-          <Button type="submit" variant="primary" onClick={loginButtonFunc}>LOGIN</Button>
+          <Button type="submit" variant="primary" onClick={LoginButtonFunc}>LOGIN</Button>
           
         </Form>
       </LoginDivStyled>
