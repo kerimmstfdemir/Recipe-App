@@ -9,9 +9,9 @@ const Navbar = () => {
     <NavBarStyled>
       <div>RECIPE APP</div>
       <NavBarLinkStyled>
-        <Link to="/about">ABOUT</Link>
-        <a href="https://github.com/kerimmstfdemir" target="blank">GITHUB</a>
-        <Link to={"/"} onClick={(e) => setData({...data, loginInformation:false, userName:"", password:""})}>LOGOUT</Link>
+        <Link className="text-decoration-none" to="/about">ABOUT</Link>
+        <a className="text-decoration-none" href="https://github.com/kerimmstfdemir" target="blank">GITHUB</a>
+        <Link className="text-decoration-none" to={"/"} onClick={(e) => setData({...data, loginInformation:false, userName:"", password:""})}>LOGOUT</Link>
       </NavBarLinkStyled>
     </NavBarStyled>
   );
