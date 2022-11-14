@@ -6,7 +6,7 @@ const PrivateRouter = () => {
   const {data:{loginInformation}}= useContext(MainContext);
   return (
     <div>
-        {loginInformation ? <Navigate to={"/home"} /> : <Outlet />}
+        {loginInformation ? <Outlet /> : <Navigate to={"/"} /> }
         
     </div>
   )

@@ -1,8 +1,15 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import { useNavigate } from "react-router-dom";
 
 const RecipeCard = ({ recipeFood }) => {
+  const navigate = useNavigate();
   console.log(recipeFood);
+
+  const handleDetails = (e) => {
+    e.preventDefault();
+    navigate("/details")
+  }
 
   return (
     <div className="d-flex flex-row justify-content-center flex-wrap">
@@ -15,7 +22,7 @@ const RecipeCard = ({ recipeFood }) => {
                     <Card.Title className="text-center">{label}</Card.Title>
                 </div>
               <Card.Img style={{width:"12rem", height:"12rem"}} variant="top" src={image} />
-              <Button className="mt-3 mb-3" variant="primary">View More</Button>
+              <Button className="mt-3 mb-3" variant="primary" onClick={handleDetails}>View More</Button>
             </Card>
           </>
         );
