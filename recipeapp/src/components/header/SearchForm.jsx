@@ -1,8 +1,9 @@
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { MainContext } from "../../context/context";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import  axios from "axios";
+import RecipeCard from "../../pages/home/RecipeCard";
 
 
 const SearchForm = () => {
@@ -10,15 +11,16 @@ const SearchForm = () => {
 
   const url = `https://api.edamam.com/search?q=${searchFood}&app_id=${APP_ID.slice(0,-1)}&app_key=${APP_KEY.slice(0,-1)}&mealType=${selectMeal}`;
 
-  console.log(APP_KEY);
+  const [recipeFood, setRecipeFood] = useState({})
 
   const handleSearch = async (e) => {
     e.preventDefault();
-    const data = await axios(url);
-    console.log(data);
+    const {data} = await axios(url);
+    setRecipeFood(data)
   }
 
   return (
+    <>
     <Form>
       <fieldset className="d-flex flex-row justify-content-center ">
         <Form.Group className="mb-3">
@@ -37,6 +39,8 @@ const SearchForm = () => {
         
       </fieldset>
     </Form>
+    <RecipeCard recipeFood={recipeFood}/>
+    </>
 
   );
 };
