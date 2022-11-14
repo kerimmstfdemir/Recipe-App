@@ -12,6 +12,7 @@ const RecipeCard = ({ recipeFood }) => {
   }
 
   return (
+    
     <div className="d-flex flex-row justify-content-center flex-wrap">
       {recipeFood.hits?.map((item) => {
         const {recipe:{image, label}} = item;
@@ -28,6 +29,7 @@ const RecipeCard = ({ recipeFood }) => {
         );
       })}
     </div>
+    
   );
 };
 

@@ -16,6 +16,7 @@ function App() {
     password: "",
     searchFood: "",
     selectMeal: "breakfast",
+    recipeFood: {}
   });
 
   const [authentication, setAuthentication] = useState({

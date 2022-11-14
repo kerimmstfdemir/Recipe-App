@@ -1,23 +1,21 @@
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { MainContext } from "../../context/context";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import  axios from "axios";
 import RecipeCard from "../../pages/home/RecipeCard";
 
 
 const SearchForm = () => {
-  const {data, data:{searchFood, selectMeal}, setData, authentication:{APP_ID, APP_KEY}} = useContext(MainContext);
+  const {data, data:{searchFood, selectMeal, recipeFood}, setData, authentication:{APP_ID, APP_KEY}} = useContext(MainContext);
 
   const url = `https://api.edamam.com/search?q=${searchFood}&app_id=${APP_ID.slice(0,-1)}&app_key=${APP_KEY.slice(0,-1)}&mealType=${selectMeal}`;
 
-  const [recipeFood, setRecipeFood] = useState({})
-
   const handleSearch = async (e) => {
     e.preventDefault();
-    const {data} = await axios(url);
-    setRecipeFood(data)
-  }
+    const foodData = await axios(url);
+    setData({...data, recipeFood:foodData.data})
+    }
 
   return (
     <>
