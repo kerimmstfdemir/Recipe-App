@@ -1,8 +1,10 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Details = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+  const {state:detailsFood} = useLocation();
+  console.log(detailsFood)
   return (
     <>
     <div>Details</div>

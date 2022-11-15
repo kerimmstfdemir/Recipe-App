@@ -6,16 +6,11 @@ const RecipeCard = ({ recipeFood }) => {
   const navigate = useNavigate();
   console.log(recipeFood);
 
-  const handleDetails = (e) => {
-    e.preventDefault();
-    navigate("/details")
-  }
-
   return (
     
     <div className="d-flex flex-row justify-content-center flex-wrap">
       {recipeFood.hits?.map((item) => {
-        const {recipe:{image, label}} = item;
+        const {recipe, recipe:{image, label}} = item;
         return (
           <>
             <Card className="d-flex justify-content-center align-items-center" style={{ width: "18rem", margin: "2rem" }}>
@@ -23,7 +18,7 @@ const RecipeCard = ({ recipeFood }) => {
                     <Card.Title className="text-center">{label}</Card.Title>
                 </div>
               <Card.Img style={{width:"12rem", height:"12rem"}} variant="top" src={image} />
-              <Button className="mt-3 mb-3" variant="primary" onClick={handleDetails}>View More</Button>
+              <Button className="mt-3 mb-3" variant="primary" onClick={()=>navigate("/details", {state: recipe})}>View More</Button>
             </Card>
           </>
         );
