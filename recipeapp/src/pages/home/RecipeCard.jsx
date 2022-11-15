@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 
 const RecipeCard = ({ recipeFood }) => {
   const navigate = useNavigate();
-  console.log(recipeFood);
 
   return (
     

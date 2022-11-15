@@ -1,0 +1,21 @@
+.link {
+    color: #023059;
+    font-size: 1.45rem;
+    font-weight: 600;
+}
+
+.recipeapp-home {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.navbar-left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.navbar-left:hover {
+    cursor: pointer;
+}
