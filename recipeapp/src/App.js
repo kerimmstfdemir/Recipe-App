@@ -19,14 +19,12 @@ function App() {
     recipeFood: {}
   });
 
-  const [authentication, setAuthentication] = useState({
-    APP_ID: process.env.REACT_APP_APP_ID,
-    APP_KEY: process.env.REACT_APP_APP_KEY,
-  });
+  const APP_ID = process.env.REACT_APP_APP_ID;
+  const APP_KEY = process.env.REACT_APP_APP_KEY;
 
   return (
     <BrowserRouter>
-      <MainContext.Provider value={{ data, setData, authentication }}>
+      <MainContext.Provider value={{ data, setData, APP_ID, APP_KEY }}>
         {data.loginInformation && <Navbar />}
         <Routes>
           <Route path="/" element={<Login />} />
