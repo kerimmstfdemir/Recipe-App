@@ -1,12 +1,12 @@
 import Header from "../../components/header/Header";
 import SearchForm from "../../components/header/SearchForm";
 
-const Home = () => {
+const Home = ({authentication}) => {
 
   return (
     <div>
       <Header />
-      <SearchForm />
+      <SearchForm authentication={authentication}/>
     </div>
   )
 }

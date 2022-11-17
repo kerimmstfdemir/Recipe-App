@@ -19,17 +19,14 @@ function App() {
     recipeFood: {}
   });
 
-  const APP_ID = process.env.REACT_APP_APP_ID;
-  const APP_KEY = process.env.REACT_APP_APP_KEY;
-
   return (
     <BrowserRouter>
-      <MainContext.Provider value={{ data, setData, APP_ID, APP_KEY }}>
+      <MainContext.Provider value={{ data, setData }}>
         {data.loginInformation && <Navbar />}
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/home" element={<PrivateRouter />}>
-            <Route path="" element={<Home />} />
+            <Route path="" element={<Home/>} />
           </Route>
 
           <Route path="/about" element={<PrivateRouter />}>
