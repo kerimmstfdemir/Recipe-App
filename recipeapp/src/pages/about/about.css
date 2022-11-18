@@ -1,0 +1,5 @@
+.logo:hover {
+    opacity: 0.8;
+    font-size: xx-large;
+    transition: all ease 0.85s;
+}
