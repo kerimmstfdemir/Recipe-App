@@ -12,7 +12,7 @@ const SearchForm = () => {
   const APP_ID = process.env.REACT_APP_APP_ID;
   const APP_KEY = process.env.REACT_APP_APP_KEY;
 
-  const url = `https://api.edamam.com/search?q=${searchFood}&app_id=${APP_ID.slice(0,-1)}&app_key=${APP_KEY.slice(0,-1)}&mealType=${selectMeal}`;
+  const url = `https://api.edamam.com/search?q=${searchFood}&app_id=${APP_ID}&app_key=${APP_KEY}&mealType=${selectMeal}`;
 
   const handleSearch = async (e) => {
     e.preventDefault();
