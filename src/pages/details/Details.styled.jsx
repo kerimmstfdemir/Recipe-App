@@ -36,7 +36,7 @@ export const DetailsInclusiveDiv = styled.div`
     height: 22.22rem !important;
   }
   .doings {
-    width: 95% !important;
+    width: 30rem !important;
   }
 }
 `
