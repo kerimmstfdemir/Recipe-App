@@ -18,8 +18,7 @@ export const DetailsInclusiveDiv = styled.div`
 @media screen and (max-width: 870px) {
   .detail-card {
     flex-direction: column !important;
-    /* width: 60% !important; */
-    min-width: 28rem !important;
+    min-width: 32rem !important;
   }
   .nutrients-text {
     width: 100% !important;
