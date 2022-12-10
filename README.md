@@ -6,7 +6,7 @@
 
   https://react-recipeapp-kerimmstfdemir.netlify.app/
 
-  ## Project Skeleton
+## Project Skeleton
 
 ```
 Recipe-App (main folder)
@@ -57,6 +57,10 @@ Recipe-App (main folder)
 ├── .env
 └── yarn.lock
 ```
+
+## DEMO
+
+![Video_221210162941](https://user-images.githubusercontent.com/56498001/206858292-e72694ee-3316-48da-9d62-3660e01776a6.gif)
 
 ## API Reference
 
